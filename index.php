@@ -10,7 +10,12 @@
  * @version    v1.0.0
  */
 
+
+
 declare(strict_types=1);
+
+// Definir la versión de la aplicación para mostrarla en el pie de página y en la documentación
+define('APP_VERSION', '1.0.0-dev');
 
 // 1. Configuración de Entorno y Errores (Ajustar a 0 en producción real)
 error_reporting(E_ALL);

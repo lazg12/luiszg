@@ -1,37 +1,76 @@
+<?php
+/**
+ * Vista de Inicio (Catálogo Principal)
+ * luiszg.com - E-Commerce Modular
+ */
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>luiszg.com - Tienda Oficial</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 50px; background: #f8f9fa; color: #333; }
-        .contenedor { max-width: 800px; margin: auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
-        .producto { background: #fdfdfd; border: 1px solid #e1e4e8; padding: 20px; margin-bottom: 15px; border-radius: 6px; }
-        .producto h3 { margin-top: 0; color: #0366d6; }
-        a.btn { display: inline-block; background: #2ea44f; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        a.btn:hover { background: #22863a; }
-    </style>
+    <title>luiszg.com - Plataforma E-Commerce</title>
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="/luiszg/public/css/estilos.css">
 </head>
 <body>
-    <div class="contenedor">
+
+    <main>
+        <div class="logo-container">
+            <img src="/luiszg/public/img/logo.gif" alt="Logotipo luiszg.com">
+        </div>
+        
         <h1>luiszg.com</h1>
-        <p>Plataforma de E-Commerce desarrollada en PHP 8.x puro bajo arquitectura limpia y principios SOLID.</p>
-        
-        <h2>Catálogo de Módulos y Documentación</h2>
-        
-        <?php if (!empty($catalogos)): ?>
-            <?php foreach ($catalogos as $prod): ?>
-                <div class="producto">
-                    <h3><?= htmlspecialchars($prod['nombre']) ?></h3>
-                    <p>Precio: <strong>$<?= number_format($prod['precio'], 2) ?></strong></p>
-                    <a class="btn" href="/descargar?pdf=<?= urlencode($prod['pdf']) ?>">Descargar PDF de Muestra</a>
+        <p class="subtitle">Tienda de artículos de belleza.</p>
+
+        <!-- Sección de Catálogos - Estilo Tarjetas Modernas -->
+        <div class="catalogos-grid">
+            <!-- Yanbal -->
+            <a href="/luiszg/public/docs/catalogo-yanbal.pdf" class="card-catalogo" download>
+                <div class="card-icon">
+                    <img src="/luiszg/public/img/yanbal.jpg" alt="Logo Yanbal">
                 </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No hay productos registrados actualmente.</p>
-        <?php endif; ?>
-    </div>
+                <span class="card-title">Yanbal</span>
+                <span class="card-action">Descargar PDF</span>
+            </a>
+
+            <!-- L'Bel -->
+            <a href="/luiszg/public/docs/catalogo-lbel.pdf" class="card-catalogo" download>
+                <div class="card-icon">
+                    <img src="/luiszg/public/img/lbel.png" alt="Logo L'Bel">
+                </div>
+                <span class="card-title">L'Bel</span>
+                <span class="card-action">Descargar PDF</span>
+            </a>
+
+            <!-- Ésika -->
+            <a href="/luiszg/public/docs/catalogo-esika.pdf" class="card-catalogo" download>
+                <div class="card-icon">
+                    <img src="/luiszg/public/img/esika.png" alt="Logo Ésika">
+                </div>
+                <span class="card-title">Ésika</span>
+                <span class="card-action">Descargar PDF</span>
+            </a>
+
+            <!-- Cy°Zone -->
+            <a href="/luiszg/public/docs/catalogo-cyzone.pdf" class="card-catalogo" download>
+                <div class="card-icon">
+                    <img src="/luiszg/public/img/cyzone.png" alt="Logo Cy°Zone">
+                </div>
+                <span class="card-title">Cy°Zone</span>
+                <span class="card-action">Descargar PDF</span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <?= date('Y'); ?> <strong>Luis Zambrano Gahón</strong>. Todos los derechos reservados.</p>
+        <p>
+            Plataforma E-Commerce | Versión <strong><?= defined('APP_VERSION') ? APP_VERSION : 'dev'; ?></strong>
+            <span>•</span> 
+            Distribuido bajo los términos de la <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">Licencia MIT</a>.
+        </p>
+    </footer>
+
 </body>
 </html>
