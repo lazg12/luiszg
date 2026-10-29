@@ -1,0 +1,16 @@
+# Dependencias y paquetes (por si usas Composer más adelante)
+/vendor/
+composer.lock
+
+# Archivos de configuración de entorno o credenciales locales
+.env
+config.local.php
+
+# Configuraciones de editores de código y sistemas operativos
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Registros de errores o archivos temporales
+*.log

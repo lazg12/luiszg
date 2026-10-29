@@ -1,0 +1,13 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Si el archivo o directorio físico existe en el servidor, se sirve directamente (ej. imágenes, css, js)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # De lo contrario, redirige toda la petición hacia index.php
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
